@@ -2,9 +2,12 @@ import { Body, Controller, DefaultValuePipe, Get, Param, ParseIntPipe, Patch, Po
 import { query } from "express";
 import { CreateUseDTO } from "./dtos/create-user.dto";
 import { PatchUserDTO } from "./dtos/path-user.dto";
+import { UsersService } from "./providers/users.service";
 
 @Controller('users')
 export class UsersController{
+
+    constructor(private readonly usersService:UsersService){}
      
     @Get('/:id')
     public getUser(@Param('id', ParseIntPipe, new DefaultValuePipe(10)) id:any, @Query('name') query:any){
@@ -21,5 +24,12 @@ export class UsersController{
     public updateUser(@Body() updateUser:PatchUserDTO){
         return 'User updated successfully';
     }
+
+    @Get('service')
+    public getUsers(){
+        return this.usersService.getUsersService();
+    }
+
+
 
 }

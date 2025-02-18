@@ -30,6 +30,11 @@ export class UsersController{
         return this.usersService.getUsersService();
     }
 
+    @Post()
+    public createUserService(@Body(ValidationPipe) createUserDTO:CreateUseDTO){
+        return this.usersService.createUser(createUserDTO);
+    }
+
 
 
 }

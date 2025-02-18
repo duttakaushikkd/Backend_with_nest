@@ -21,7 +21,6 @@ export class CreateUseDTO{
 
     @IsString()
     @IsNotEmpty()
-    @Matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/, {message: 'Password too weak'})
     password: string;
 
 

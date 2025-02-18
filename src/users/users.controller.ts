@@ -9,11 +9,11 @@ export class UsersController{
 
     constructor(private readonly usersService:UsersService){}
      
-    @Get('/:id')
-    public getUser(@Param('id', ParseIntPipe, new DefaultValuePipe(10)) id:any, @Query('name') query:any){
-        console.log(id);
-        return 'This action returns all users '+id;
-    }
+    // @Get('/:id')
+    // public getUser(@Param('id', ParseIntPipe, new DefaultValuePipe(10)) id:any, @Query('name') query:any){
+    //     console.log(id);
+    //     return 'This action returns all users '+id;
+    // }
 
     @Post('users')
     public createUser(@Body() createUser:CreateUseDTO){
@@ -33,6 +33,11 @@ export class UsersController{
     @Post()
     public createUserService(@Body(ValidationPipe) createUserDTO:CreateUseDTO){
         return this.usersService.createUser(createUserDTO);
+    }
+
+    @Get('environment')
+    public environment(){
+        return this.usersService.getEnvironment();
     }
 
 

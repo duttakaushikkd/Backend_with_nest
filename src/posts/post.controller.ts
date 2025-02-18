@@ -1,6 +1,6 @@
 import { Controller, Get } from "@nestjs/common";
 import { PostService } from "./providers/post.service";
-import { UsersService } from "src/users/providers/users.service";
+import { UsersService } from "../users/providers/users.service";
 import { ApiTags } from "@nestjs/swagger";
 
 @Controller('posts')
